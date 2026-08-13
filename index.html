@@ -1,8 +1,55 @@
-GNU nano 7.2         /home/nocti/jek/Jek-Router/index.html
-<p>model = "cx/gpt-5.6-sol" <br>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Akses Token</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 24px;
+    background: #ffffff;
+    color: #111111;
+  }
+</style>
+</head>
+<body>
+
+<h1>SELAMAT ANDA MENDAPATKAN AKZEZ REZMI ATMINT JEK</h1>
+<h1>ini cuma tutor dikit buat akses tokennya</h1>
+<p>Claude & GPT nyimpen chatnya berdasarkan directory kalian s></p>
+<p>misal mulai chat di /home/user/jek nanti di claude dia baka></p>
+
+<h1>Claude</h1>
+<p>mulai sesi chat baru "claude", lanjut chat lama "claude --r></p>
+<p>Ubuntu</p>
+<p>export ANTHROPIC_BASE_URL = "http://100.113.253.122:20128" ></p>
+<p>export ANTHROPIC_API_KEY = "taruh API nya disini ngab"</p>
+<p>opsional</p>
+<p>export ANTHROPIC_DEFAULT_OPUS_MODEL": "cc/claude-opus-5"<br>
+    export ANTHROPIC_DEFAULT_SONNET_MODEL": "cc/claude-sonnet-></br>
+    export ANTHROPIC_DEFAULT_HAIKU_MODEL": "cc/claude-haiku-4-></br>
+</p>
+<p>jadi ini biar kalo claude nya dijalanin nanti gausah pinda></p>
+
+<p>Powershell</p>
+<p>
+$env:ANTHROPIC_BASE_URL="http://100.113.253.122:20128"<br>
+$env:ANTHROPIC_AUTH_TOKEN="API nya taruh disini ngab"<br>
+$env:ANTHROPIC_DEFAULT_OPUS_MODEL="cc/claude-opus-5"<br>
+$env:ANTHROPIC_DEFAULT_SONNET_MODEL="cc/claude-sonnet-5"<br>
+$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="cc/claude-haiku-4-5-202510></br>
+</p>
+
+<h1>Codex</h1>
+<p>ini codex rada ribet karna dia nda bisa tembak API langsung></p>
+<p>nano ~/.codex/config.toml</p>
+<p>isi filenya</p>
+<p>
+model = "cx/gpt-5.6-sol" <br>
     model_provider = "9router"<br>
 model_reasoning_effort = "medium" //effortnya low-high<br>
-
+<br>
 [model_providers.9router]<br>
 name = "9Router"<br>
 base_url = "http://100.113.253.122:20128"<br>
@@ -11,14 +58,18 @@ wire_api = "responses"<br>
 requires_openai_auth = false
 </p>
 <p>trus<br>
-export ROUTER9_API_KEY="API taruh sini" //ini bisa langsung dimasukin ke env_k>
-<p>keep in mind kalau ini bakal jadi default codex kalian jadi kalo mau pake c>
+export ROUTER9_API_KEY="API taruh sini" //ini bisa langsung di></p>
+<p>keep in mind kalau ini bakal jadi default codex kalian jadi></p>
 <p>list model dari pemula sampai atmint hengker</p>
-<p>cx/gpt-5.4<br>
+<p>
+cx/gpt-5.4<br>
 cx/gpt-5.5<br>
 cx/gpt-5.6-luna<br>
 cx/gpt-5.6-terra<br>
 cx/gpt-5.6-sol<br>
 saran sih pake sol bae trus ubah effortnya aja
 </p>
+<p>ini ribet karna codex bisa dihubungin gateaway ke banyak te></p>
 
+</body>
+</html>
