@@ -1,30 +1,4 @@
-<!doctype html>
-<html>
-<head>
-</html>
-<tittle>Welkam to  jek 9router
-</tittle>
-<h1>ini cuma tutor dikit buat akses tokennya</h1>
-<h1>Claude</h1>
-<p>Ubuntu</p>
-<p>export ANTHROPIC_BASE_URL = "http://100.113.253.122:20128" //bisa juga http://nocti:20128</p>
-<p>export ANTHROPIC_API_KEY = "taruh API nya disini ngab"</p>
-<p>opsional</p>
-<p>export ANTHROPIC_DEFAULT_OPUS_MODEL": "cc/claude-opus-5"<br>
-    export ANTHROPIC_DEFAULT_SONNET_MODEL": "cc/claude-sonnet-5"<br>
-    export ANTHROPIC_DEFAULT_HAIKU_MODEL": "cc/claude-haiku-4-5-20251001"<p>
-</p>jadi ini biar kalo claude nya dijalanin nanti gausah pindah model karna defaultnya claude itu manggil via OAuth/API resminya</p>
-<p>Powershell</p>
-<p>$env:ANTHROPIC_BASE_URL="http://100.113.253.122:20128"
-$env:ANTHROPIC_AUTH_TOKEN="API nya taruh disini ngab"
-$env:ANTHROPIC_DEFAULT_OPUS_MODEL="cc/claude-opus-5"<br>
-$env:ANTHROPIC_DEFAULT_SONNET_MODEL="cc/claude-sonnet-5"<br>
-$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="cc/claude-haiku-4-5-20251001"</p>
-
-<h1>Codex</h1>
-<p>ini codex rada ribet karna dia nda bisa tembak API langsung jadi diakalinnya pake ubah file ~/.codex/config.toml<p>
-<p>nano ~/.codex/config.toml</p>
-<p>isi filenya</p>
+GNU nano 7.2         /home/nocti/jek/Jek-Router/index.html
 <p>model = "cx/gpt-5.6-sol" <br>
     model_provider = "9router"<br>
 model_reasoning_effort = "medium" //effortnya low-high<br>
@@ -37,7 +11,8 @@ wire_api = "responses"<br>
 requires_openai_auth = false
 </p>
 <p>trus<br>
-export ROUTER9_API_KEY="nah taruh API keynya disini"</p>
+export ROUTER9_API_KEY="API taruh sini" //ini bisa langsung dimasukin ke env_k>
+<p>keep in mind kalau ini bakal jadi default codex kalian jadi kalo mau pake c>
 <p>list model dari pemula sampai atmint hengker</p>
 <p>cx/gpt-5.4<br>
 cx/gpt-5.5<br>
@@ -46,6 +21,4 @@ cx/gpt-5.6-terra<br>
 cx/gpt-5.6-sol<br>
 saran sih pake sol bae trus ubah effortnya aja
 </p>
-<p>ini ribet karna codex bisa dihubungin gateaway ke banyak tempat jadi mesti di spesifikin emang ribet bat hdeh</p>
-</head>
-</html>
+
