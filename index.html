@@ -2,50 +2,121 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Akses Token</title>
 <style>
-  body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 24px;
-    background: #ffffff;
-    color: #111111;
+body {
+    background: black;
+    color: white;
+}
+  #toolbar {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  #toolbar label {
+    cursor: pointer;
+    user-select: none;
+  }
+  #toolbar input[type="checkbox"] {
+    width: 20px;
+    height: 15px;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  /* tampilan "vibe-coded version" — aktif kalau body punya class .vibe */
+  /* referensi: Stripe Docs / Linear — netral, border tipis, minim gradasi */
+  body.vibe {
+    background: #0d0f12;
+    color: #e4e6eb;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0.1px;
+  }
+  body.vibe h1 {
+    color: #f5f5f7;
+    font-weight: 600;
+    border-bottom: 1px solid #26282e;
+    padding-bottom: 10px;
+  }
+  body.vibe p {
+    background: #16181d;
+    padding: 16px 20px;
+    border-radius: 6px;
+    border: 1px solid #26282e;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* blok perintah yang diketik di terminal — dibuat mirip jendela terminal asli */
+  body.vibe p.terminal {
+    background: #0a0a0a;
+    border: 1px solid #26282e;
+    border-radius: 8px;
+    padding: 36px 20px 20px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 14px;
+    color: #7dabf8;
+    line-height: 1.8;
+    position: relative;
+  }
+  /* 3 titik ala macOS (merah/kuning/hijau) di pojok kiri atas jendela */
+  body.vibe p.terminal::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5f56;
+    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
   }
 </style>
 </head>
 <body>
 
+
 <h1>SELAMAT ANDA MENDAPATKAN AKZEZ REZMI ATMINT JEK</h1>
+
+<div id="toolbar">
+  <label>
+    <input type="checkbox" id="vibeToggle">
+    vibe-coded version
+  </label>
+</div>
+
 <h1>ini cuma tutor dikit buat akses tokennya</h1>
-<p>Claude & GPT nyimpen chatnya berdasarkan directory kalian s></p>
-<p>misal mulai chat di /home/user/jek nanti di claude dia baka></p>
+<p>Claude & GPT nyimpen chatnya berdasarkan directory kalian start chat tapi semua chat tetap disimpan di .claude atau .codex di home</p>
+<p>misal mulai chat di /home/user/jek nanti di claude dia bakal simpan chat di /home/user/.claude/projects/-home-user-jek</p>
 
 <h1>Claude</h1>
-<p>mulai sesi chat baru "claude", lanjut chat lama "claude --r></p>
-<p>Ubuntu</p>
-<p>export ANTHROPIC_BASE_URL = "http://100.113.253.122:20128" ></p>
-<p>export ANTHROPIC_API_KEY = "taruh API nya disini ngab"</p>
+<p>mulai sesi chat baru <p>
+<p class="terminal">claude</p>
+<p>lanjut chat lama</p>
+<p class="terminal">claude --resume</p>
+<p>Linux</p>
+<p class="terminal">export ANTHROPIC_BASE_URL="http://100.113.253.122:20128"</p>
+<p class="terminal">export ANTHROPIC_API_KEY="API_KEY"</p>
 <p>opsional</p>
-<p>export ANTHROPIC_DEFAULT_OPUS_MODEL": "cc/claude-opus-5"<br>
-    export ANTHROPIC_DEFAULT_SONNET_MODEL": "cc/claude-sonnet-></br>
-    export ANTHROPIC_DEFAULT_HAIKU_MODEL": "cc/claude-haiku-4-></br>
+<p class="terminal">
+    export ANTHROPIC_DEFAULT_OPUS_MODEL="cc/claude-opus-5"<br>
+    export ANTHROPIC_DEFAULT_SONNET_MODEL="cc/claude-sonnet-5"</br>
+    export ANTHROPIC_DEFAULT_HAIKU_MODEL="cc/claude-haiku-4-5-20251001"</br>
 </p>
-<p>jadi ini biar kalo claude nya dijalanin nanti gausah pinda></p>
+<p>kalau model tidak di export nanti mesti /model trus ketik sesuai format model ini misal "/model cc/claude-sonnet-5"</p>
 
 <p>Powershell</p>
-<p>
+<p class="terminal">
 $env:ANTHROPIC_BASE_URL="http://100.113.253.122:20128"<br>
 $env:ANTHROPIC_AUTH_TOKEN="API nya taruh disini ngab"<br>
 $env:ANTHROPIC_DEFAULT_OPUS_MODEL="cc/claude-opus-5"<br>
 $env:ANTHROPIC_DEFAULT_SONNET_MODEL="cc/claude-sonnet-5"<br>
-$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="cc/claude-haiku-4-5-202510></br>
+$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="cc/claude-haiku-4-5-20251001"</br>
 </p>
 
 <h1>Codex</h1>
-<p>ini codex rada ribet karna dia nda bisa tembak API langsung></p>
-<p>nano ~/.codex/config.toml</p>
+<p>ini codex rada ribet karna dia nda bisa tembak API langsung jadi mesti ubah file panggilannya di codex</p>
+<p class="terminal">nano ~/.codex/config.toml</p>
 <p>isi filenya</p>
-<p>
+<p class="terminal">
 model = "cx/gpt-5.6-sol" <br>
     model_provider = "9router"<br>
 model_reasoning_effort = "medium" //effortnya low-high<br>
@@ -57,9 +128,9 @@ env_key = "ROUTER9_API_KEY"<br>
 wire_api = "responses"<br>
 requires_openai_auth = false
 </p>
-<p>trus<br>
-export ROUTER9_API_KEY="API taruh sini" //ini bisa langsung di></p>
-<p>keep in mind kalau ini bakal jadi default codex kalian jadi></p>
+<p>trus</p>
+<p class="terminal">export ROUTER9_API_KEY="API taruh sini"</p>
+<p>keep in mind kalau ini bakal jadi default codex kalian jadi kalo mau pake punya sendiri balikin ke default</p>
 <p>list model dari pemula sampai atmint hengker</p>
 <p>
 cx/gpt-5.4<br>
@@ -69,7 +140,16 @@ cx/gpt-5.6-terra<br>
 cx/gpt-5.6-sol<br>
 saran sih pake sol bae trus ubah effortnya aja
 </p>
-<p>ini ribet karna codex bisa dihubungin gateaway ke banyak te></p>
+<p>ini ribet karna codex bisa dihubungin gateaway ke banyak tempat jadi mesti spesifik panggilannya</p>
+
+<h1>Masih bingung?</h1>
+<p>tanyakan saja pada jek</p>
+<script>
+  const toggle = document.getElementById('vibeToggle');
+  toggle.addEventListener('change', () => {
+    document.body.classList.toggle('vibe', toggle.checked);
+  });
+</script>
 
 </body>
 </html>
