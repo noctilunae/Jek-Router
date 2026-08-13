@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>JSON Viewer Demo</title>
+<style>
+  body {
+    background: #202124;
+    color: #e8eaed;
+    font-family: monospace;
+    margin: 0;
+    padding: 16px;
+  }
+  #toolbar {
+    margin-bottom: 12px;
+  }
+  #toolbar label {
+    cursor: pointer;
+    user-select: none;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  /* warna-warna ala Chrome DevTools */
+  .json-key    { color: #7a9fdb; }
+  .json-string { color: #f28b54; }
+  .json-number { color: #b5cea8; }
+  .json-bool   { color: #c586c0; }
+  .json-null   { color: #c586c0; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <label>
+    <input type="checkbox" id="prettyToggle">
+    Pretty-print
+  </label>
+</div>
+
+<pre id="output"></pre>
+
+<script>
+  // ini data JSON contoh, di dunia nyata ini bisa datang dari fetch() API
+  const rawData = {
+    error: "API key required for remote API access",
+    code: 401,
+    retry: false
+  };
+
+  const rawText = JSON.stringify(rawData); // versi mentah, satu baris
+  const output = document.getElementById('output');
+  const toggle = document.getElementById('prettyToggle');
+
+  // fungsi ini ubah objek JSON jadi HTML dengan <span> berwarna
+  function syntaxHighlight(obj) {
+    const json = JSON.stringify(obj, null, 2); // null,2 = rapi + indentasi 2 spasi
+    // escape karakter HTML biar aman ditampilkan
+    const escaped = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    // regex ini nyari token: string, number, boolean, null
+    return escaped.replace(
+      /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false)\b|null|-?\d+(\.\d+)?([eE][+-]?\d+)?)/g,
+      (match) => {
+        let cls = 'json-number';
+        if (/^"/.test(match)) {
+          cls = /:$/.test(match) ? 'json-key' : 'json-string';
+        } else if (/true|false/.test(match)) {
+          cls = 'json-bool';
+        } else if (/null/.test(match)) {
+          cls = 'json-null';
+        }
+        return `<span class="${cls}">${match}</span>`;
+      }
+    );
+  }
+
+  // fungsi ini yang jalan tiap kali checkbox berubah
+  function render() {
+    if (toggle.checked) {
+      output.innerHTML = syntaxHighlight(rawData);
+    } else {
+      output.textContent = rawText; // textContent = teks polos, nggak diproses HTML
+    }
+  }
+
+  toggle.addEventListener('change', render); // "kalau checkbox berubah, jalanin render()"
+  render(); // panggil sekali di awal biar ada tampilan default
+</script>
+
+</body>
+</html>
