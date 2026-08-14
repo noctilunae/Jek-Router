@@ -161,6 +161,14 @@ cx/gpt-5.6-sol</p>
 <p> ini file hasil ambil file debug codex tadi trus disimpan di omkegams.json lalu ditambah imbuhan cx agar model yang awalnya gpt.5-6.sol > cx/gpt.5-6.sol agar bisa dibaca oleh 9router</p>
 <p>untuk config.toml nya</p>
 <p class="terminal">http://100.113.253.122:6969/config.toml</p>
+<p>kalau mau command sendiri</p>
+<p class="terminal">codex debug models --bundled \<br>
+| jq '.models |= map(.slug = "cx/" + .slug)' \<br>
+> ~/.codex/model-catalog.json<br>
+nano ~/.codex/config.toml</p>
+<p>trus tambahin config.toml nya</p> 
+<p class="terminal"> model_catalog_json = "~/.codex/model-catalog.json"</p>
+<p>jq jadinya ngubah tiap gpt-5.6-sol jadi cx/gpt-5.6-sol</p>
 <h1>Masih bingung?</h1>
 <p>tanyakan saja pada jek</p>
 <script>
